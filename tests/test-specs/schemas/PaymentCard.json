@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "valid": {
+      "type": "boolean"
+    },
+    "memberLoginName": {
+      "type": "string",
+      "example": "EXAMPLEUSER1"
+    },
+    "scheme": {
+      "type": "string",
+      "enum": [
+        "VISA",
+        "MASTERCARD"
+      ]
+    },
+    "cardId": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "expiryDate": {
+      "type": "string"
+    },
+    "cardCountry": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "null"
+    },
+    "modifiedDate": {
+      "type": "null"
+    },
+    "nameOnCard": {
+      "type": "string"
+    },
+    "totalAmountDeposited": {
+      "type": "integer"
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "memberLoginName",
+    "cardId",
+    "startDate",
+    "expiryDate",
+    "cardCountry",
+    "nameOnCard",
+    "totalAmountDeposited"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "paths": {
+    "/cats/{catId}": {
+      "get": {
+        "summary": "Get a cat by ID",
+        "operationId": "getCatById",
+        "tags": [
+          "Cat"
+        ],
+        "parameters": [
+          {
+            "name": "catId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the cat to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "age"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier for the cat"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the cat"
+                    },
+                    "age": {
+                      "type": "integer",
+                      "description": "The age of the cat"
+                    },
+                    "breed": {
+                      "type": "string",
+                      "description": "The breed of the cat"
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "The color of the cat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cat not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a cat by ID",
+        "operationId": "updateCatById",
+        "tags": [
+          "Cat"
+        ],
+        "parameters": [
+          {
+            "name": "catId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the cat to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Cat object to update",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "age"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the cat"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the cat"
+                  },
+                  "age": {
+                    "type": "integer",
+                    "description": "The age of the cat"
+                  },
+                  "breed": {
+                    "type": "string",
+                    "description": "The breed of the cat"
+                  },
+                  "color": {
+                    "type": "string",
+                    "description": "The color of the cat"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cat updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "age"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier for the cat"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the cat"
+                    },
+                    "age": {
+                      "type": "integer",
+                      "description": "The age of the cat"
+                    },
+                    "breed": {
+                      "type": "string",
+                      "description": "The breed of the cat"
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "The color of the cat"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cat not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a cat by ID",
+        "operationId": "deleteCatById",
+        "tags": [
+          "Cat"
+        ],
+        "parameters": [
+          {
+            "name": "catId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the cat to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cat deleted successfully"
+          },
+          "404": {
+            "description": "Cat not found"
+          }
+        }
+      }
+    }
+  }
+}

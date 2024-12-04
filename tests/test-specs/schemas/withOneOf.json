@@ -1,0 +1,36 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": "integer"
+        },
+        "nickname": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "age"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "pet_type": {
+          "type": "string",
+          "enum": [
+            "Cat",
+            "Dog"
+          ]
+        },
+        "hunts": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pet_type"
+      ]
+    }
+  ]
+}

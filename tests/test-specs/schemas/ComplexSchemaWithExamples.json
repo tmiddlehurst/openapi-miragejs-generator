@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "valid": {
+      "type": "boolean",
+      "example": true
+    },
+    "modifiedDate": {
+      "type": "null",
+      "example": "2025-08-15T01:36:34.749Z"
+    },
+    "nameOnCard": {
+      "type": "string",
+      "example": "Thomas Middlehurst"
+    },
+    "totalAmountDeposited": {
+      "type": "integer",
+      "example": 1000
+    },
+    "scheme": {
+      "type": "string",
+      "enum": [
+        "VISA",
+        "MASTERCARD"
+      ]
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "Buy Groceries",
+        "Buy Coffee"
+      ]
+    }
+  }
+}

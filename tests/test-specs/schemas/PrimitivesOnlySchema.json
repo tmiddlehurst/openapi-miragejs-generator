@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "valid": {
+      "type": "boolean"
+    },
+    "modifiedDate": {
+      "type": "null"
+    },
+    "nameOnCard": {
+      "type": "string"
+    },
+    "totalAmountDeposited": {
+      "type": "integer"
+    }
+  }
+}
