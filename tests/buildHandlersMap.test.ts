@@ -49,7 +49,7 @@ describe('building map of route handlers', () => {
       export type MirageRouteHandler = (schema: any, request: Request) => any;
 
       export const handlersMap = new Map<HandlerRequest, MirageRouteHandler>;
-      handlersMap.set({ verb: \"put\", path: \"/coffee:cupId\" }, pourCoffeeHandler);`);
+      handlersMap.set({ verb: \"put\", path: \"/coffee/:cupId\" }, pourCoffeeHandler);`);
     const handlers: HandlerConfig[] = [
       { name: 'pourCoffeeHandler', method: 'put', path: '/coffee/{cupId}' }
     ];

@@ -4,7 +4,7 @@ import { AutogenComment } from '../utils';
 // Replace URL path params with mirage path param syntax
 // e.g. /coffee/{cupId} -> /coffee:cupId
 function miragePath(path: string) {
-  return path.replace(/\/\{([^}]+)\}/g, ':$1');
+  return path.replace(/\/\{([^}]+)\}/g, '/:$1');
 }
 
 export default function (handlers: HandlerConfig[]): string {
