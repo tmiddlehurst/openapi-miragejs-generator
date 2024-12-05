@@ -5,7 +5,7 @@
 With Node 16.17+
 
 ```
-npx openapi-generator-miragejs -i PATH_TO_INPUT_SPEC -o OUTPUT_DIR
+npx openapi-generator-miragejs-ts -i PATH_TO_INPUT_SPEC -o OUTPUT_DIR
 ```
 
 will generate mirage server config inside OUTPUT_DIR, creating the directory if it doesn't already exist.

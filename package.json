@@ -1,5 +1,5 @@
 {
-  "name": "openapi-miragejs-generator",
+  "name": "openapi-generator-miragejs-ts",
   "version": "1.0.0",
   "description": "Generate type-safe miragejs server config from OpenAPI specification.",
   "module": "index.js",
