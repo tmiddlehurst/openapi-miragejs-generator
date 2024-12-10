@@ -18,7 +18,7 @@ export default function buildRouteHandler(operationObject: OpenAPIV3.OperationOb
   ${AutogenComment}
   import { Request, Response } from 'miragejs';
 
-  export default (schema, request: Request) => {
+  export default (schema: unknown, request: Request) => {
     const headers = ${headers};
     const body = ${body};
 
