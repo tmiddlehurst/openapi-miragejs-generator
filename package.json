@@ -35,13 +35,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tmiddlehurst/OpenApi-Mirage-Generator.git"
+    "url": "git+https://github.com/tmiddlehurst/openapi-miragejs-generator-ts.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tmiddlehurst/OpenApi-Mirage-Generator/issues"
+    "url": "https://github.com/tmiddlehurst/openapi-miragejs-generator-ts/issues"
   },
-  "homepage": "https://github.com/tmiddlehurst/OpenApi-Mirage-Generator#readme"
+  "homepage": "https://github.com/tmiddlehurst/openapi-miragejs-generator-ts#readme"
 }
