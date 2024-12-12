@@ -11,6 +11,7 @@ import buildRouteHandler from './buildFile/buildRouteHandler';
 import getHandlersFromPaths, { type HandlerConfig } from './getRouteHandlerConfig';
 import buildHandlersMap from './buildFile/buildHandlersMap';
 import buildIndexFile from './buildFile/buildIndexFile';
+import buildMirageTypes from './buildFile/buildMirageTypes';
 
 export default async function generate(inputSpec: OpenAPIV3.Document, outputDir: string) {
   // Check and create output dir if it does not exist
@@ -70,6 +71,7 @@ export default async function generate(inputSpec: OpenAPIV3.Document, outputDir:
 
   filesToWrite.push({ fileName: 'example-server.ts', content: buildServerFile() });
   filesToWrite.push({ fileName: 'index.ts', content: buildIndexFile() });
+  filesToWrite.push({ fileName: 'mirage-types.d.ts', content: buildMirageTypes() });
 
   for (const fileToWrite of filesToWrite) {
     console.log('writing file: ', fileToWrite.fileName);

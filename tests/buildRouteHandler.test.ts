@@ -3,12 +3,13 @@ import buildRouteHandler, { getBody, getHeaders } from '../src/buildFile/buildRo
 import { AutogenComment, format } from '../src/utils';
 
 const exampleRouteHandler = `${AutogenComment}
-import { Request, Response } from 'miragejs';\n\nexport default (schema: unknown, request: Request) => {\n  const headers = {};\n  const body = {\n    note: {\n      memberLoginName: 'EXAMPLEUSER1',\n      text: 'This is a note',\n      adminUserLoginName: 'Example.Name',\n      isHiddenInAdminGui: true,\n      created: '2021-01-01T00:00:00Z'\n    }\n  };\n\n  return new Response(200, headers, body);\n};\n`;
+import { Request, Response } from 'miragejs';\nimport type { AppSchema } from '../mirage-types.d.ts'\n\nexport default (schema: AppSchema, request: Request) => {\n  const headers = {};\n  const body = {\n    note: {\n      memberLoginName: 'EXAMPLEUSER1',\n      text: 'This is a note',\n      adminUserLoginName: 'Example.Name',\n      isHiddenInAdminGui: true,\n      created: '2021-01-01T00:00:00Z'\n    }\n  };\n\n  return new Response(200, headers, body);\n};\n`;
 
 const exampleRouteHandlerNoContent = `${AutogenComment}
   import { Request, Response } from 'miragejs';
+  import type { AppSchema } from '../mirage-types.d.ts'
 
-  export default (schema: unknown, request: Request) => {
+  export default (schema: AppSchema, request: Request) => {
     const headers = {};
     const body = {};
 
