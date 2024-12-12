@@ -11,9 +11,9 @@ import buildRouteHandler from './buildFile/buildRouteHandler';
 import getHandlersFromPaths, { type HandlerConfig } from './getRouteHandlerConfig';
 import buildHandlersMap from './buildFile/buildHandlersMap';
 import buildIndexFile from './buildFile/buildIndexFile';
-import resolveRefs from './resolveRefs';
 
 export default async function generate(inputSpec: OpenAPIV3.Document, outputDir: string) {
+  // Check and create output dir if it does not exist
   try {
     if (!outputDir || typeof outputDir !== "string") {
       console.error("Invalid output dir path provided");
@@ -25,10 +25,14 @@ export default async function generate(inputSpec: OpenAPIV3.Document, outputDir:
     throw new Error('Unable to create output dir ');
   }
 
-  inputSpec = resolveRefs(inputSpec);
-
   let filesToWrite: FileToWrite[] = [];
 
+  /*
+  Build file strings for
+    - model definitions models.ts
+    - factory definitions factories.ts
+    - each factory file
+  */
   if (inputSpec?.components?.schemas && Object.keys(inputSpec.components.schemas).length) {
     const models = getLikelyModels(inputSpec.components.schemas as Record<string, OpenAPIV3.SchemaObject>);
 
@@ -46,8 +50,12 @@ export default async function generate(inputSpec: OpenAPIV3.Document, outputDir:
     }
   }
 
+  /*
+  Build file strings for
+   - handler definitions file handlers.ts
+   - each handler file
+  */
   const routeHandlerConfig = getHandlersFromPaths(inputSpec.paths);
-
   if (routeHandlerConfig.length) {
     const pathToHandlers = path.join(outputDir, 'handlers');
     if (!fs.existsSync(pathToHandlers)) {

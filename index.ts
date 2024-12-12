@@ -23,7 +23,9 @@ const argv = yargs(hideBin(process.argv))
   .argv;
 
 
+// @ts-expect-error i is a required arg
 const inputFile = argv.i;
+// @ts-expect-error o is a required arg
 const outputFile = argv.o;
 
 createConfig(
@@ -32,13 +34,13 @@ createConfig(
     rules: {
       'operation-description': 'error',
     },
+
   }
 ).then(config => {
-  bundle({ ref: inputFile, config },).then((res) => {
-    try {
-      generate(res.bundle.parsed, outputFile);
-    } catch (e) {
-    }
+  bundle({ ref: inputFile, config, dereference: true }).then((res) => {
+    generate(res.bundle.parsed, outputFile);
+
+    // TODO: check for circular references
   }).catch(err => {
     console.error(`Bundling with \`redocly bundle\` failed. Check that path $refs to files are valid and try again.\n${err}`);
   });
